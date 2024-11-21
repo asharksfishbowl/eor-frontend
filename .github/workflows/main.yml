@@ -4,6 +4,10 @@ on:
   push:
     branches:
       - main
+      
+permissions:
+  id-token: write  # Grant write permissions for the id-token
+  contents: read   # Read permissions for the repository contents (default)      
 
 jobs:
   build-and-deploy:
