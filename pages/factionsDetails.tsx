@@ -17,6 +17,7 @@ const FactionDetails = ({ faction }) => {
     const router = useRouter();
     const { id } = router.query;
 
+    console.log(id, faction);
     return (
         <div className="container mx-auto p-6">
             <h1 className="text-4xl font-bold text-white">{faction.name}</h1>
