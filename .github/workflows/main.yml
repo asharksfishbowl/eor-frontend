@@ -19,18 +19,10 @@ jobs:
         node-version: '20'  # Change this to your required Node.js version
 
     - name: Install dependencies
-      run: |
-        npm install
+      run: npm install
 
     - name: Build project
-      run: |
-        npm run build
-
-    - name: Upload build artifact
-      uses: actions/upload-artifact@v3
-      with:
-        name: build-artifact
-        path: .next
+      run: npm run build
 
     - name: Azure Login
       uses: azure/login@v1
@@ -42,5 +34,4 @@ jobs:
       with:
         app-name: "eor-frontend"  # Replace with your Azure App Service name
         slot-name: "production"
-        package: build/
-        publish-profile: ${{ secrets.AZURE_PUBLISH_PROFILE }}
+        package: '.next'  # Ensure this matches your build output folder
