@@ -91,9 +91,27 @@ const Dashboard: NextPage = () => {
                                     : 'RESIST is a human faction committed to fighting against AI dominance and preserving humanity.'}
                             </p>
                             <div>
-                                {faction === 'PRISMAI'
-                                    ? <Image className="faction-image" src="/images/Legendary AI General.webp" alt="" width="100" height="100"/>
-                                    : <Image className="faction-image" src="/images/The Death Machine.webp" alt="" width="100" height="100"/>}
+                                {
+                                    faction === 'PRISMAI'
+                                    ? <Image
+                                        className="faction-image"
+                                        src="/images/Legendary AI General.webp"
+                                        alt=""
+                                        width={500}
+                                        height={500}
+                                        style={{ objectFit: 'cover' }}
+                                        priority={true}
+                                    />
+                                    : <Image
+                                        className="faction-image"
+                                        src="/images/The Death Machine.webp"
+                                        alt=""
+                                        width={500}
+                                        height={500}
+                                        style={{ objectFit: 'cover' }}
+                                        priority={true}
+                                    />
+                                }
                             </div>
                         </motion.div>
                     )}
