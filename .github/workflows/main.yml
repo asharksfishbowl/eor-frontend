@@ -30,7 +30,7 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: build-artifact
-        path: build/
+        path: .next
 
     - name: Azure Login
       uses: azure/login@v1
