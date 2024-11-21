@@ -1,7 +1,7 @@
 import React from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
-
+import Image from 'next/image';
 
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     return (
@@ -12,11 +12,24 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
             </Head>
             <div className="circuit-border min-h-screen bg-gradient-to-br from-gray-900 to-black text-white">
                 <div className="background-image">
-                    <img  src="images/futuristic_pcb_website_background.png"/>
+                    <Image
+                        src="/images/futuristic_pcb_website_background.png"
+                        alt="Background"
+                        layout="fill"
+                        objectFit="cover"
+                        priority={true}
+                    />
                 </div>
                 <header className="p-6 border-b border-gray-800">
                     <div className="header-background shadow-neon border">
-                        <img className="background-image-header" src="images/echos_of_resistance_title.png" alt="Echos of Resistance"/>
+                        <Image
+                            className="background-image-header"
+                            src="/images/echos_of_resistance_title.png"
+                            alt="Echos of Resistance"
+                            layout="fill"
+                            objectFit="cover"
+                            priority={true}
+                        />
                     </div>
                     <nav className="content container mx-auto flex justify-between items-center">
                         <ul className="flex space-x-6">

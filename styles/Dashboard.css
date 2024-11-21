@@ -6,7 +6,7 @@
 }
 
 .border {
-    border: 0px solid transparent;
+    border: 0 solid transparent;
     border-radius: 15px;
 }
 
@@ -14,8 +14,8 @@
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 100% !important;
+    height: 100% !important;
     object-fit: fill; /* Cover the entire area without distortion */
     z-index: 0; /* Image stays behind the content */
     opacity: 0.15;

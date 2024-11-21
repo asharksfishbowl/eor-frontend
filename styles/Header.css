@@ -1,7 +1,7 @@
 .header-background {
     position: relative;
-    width: 70%;
-    height: 35vh; /* Full viewport height */
+    width: 70% !important;
+    height: 35vh !important; /* Full viewport height */
     overflow: hidden; /* Hide overflow to prevent image going outside of container */
     perspective: 1800px; /* Perspective for a 3D effect */
     display: flex;

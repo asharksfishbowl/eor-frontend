@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import { NextPage } from 'next';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
+import { FACTION_DETAILS } from '../helpers/constants';
 
 const Dashboard: NextPage = () => {
     const [username, setUsername] = useState('User');
+    const [tagLine, setTagline] = useState('Welcome to the battle');
     const [faction, setFaction] = useState<'PRISMAI' | 'RESIST' | null>(null);
     const [showFactionDetails, setShowFactionDetails] = useState(false);
 
@@ -15,11 +18,15 @@ const Dashboard: NextPage = () => {
             setTimeout(() => {
                 setFaction(selectedFaction);
                 setShowFactionDetails(true);
+                setUsername(selectedFaction);
+                setTagline(FACTION_DETAILS[selectedFaction].tagLine);
             }, 1000); // Match duration with the fade-out transition time (1.5s)
         } else {
             // If it's the first time selecting a faction
             setFaction(selectedFaction);
             setShowFactionDetails(true);
+            setUsername(selectedFaction);
+            setTagline(FACTION_DETAILS[selectedFaction].tagLine);
         }
     };
 
@@ -32,7 +39,7 @@ const Dashboard: NextPage = () => {
         >
             <div className="relative z-10">
                 <h1 className="text-5xl font-extrabold mb-6 text-prismai-cyan">
-                    Welcome to the Dashboard, {username}!
+                    {tagLine}, {username}!
                 </h1>
                 <p className="text-lg text-gray-300">
                     This is your personalized dashboard where you can manage your settings, view data, and interact with different features of the app.
@@ -51,7 +58,7 @@ const Dashboard: NextPage = () => {
                                 contain: "content"
                             }}
                         >
-                            <img className="faction-logo" src="images/Ancient AI Logo.webp" alt="" /> Ancient <br /> AI
+                            <Image className="faction-logo" src="/images/Ancient AI Logo.webp" alt="" width="100" height="100"/> Ancient <br /> AI
                         </motion.button>
 
                         <motion.button
@@ -64,7 +71,7 @@ const Dashboard: NextPage = () => {
                                 contain: "content"
                             }}
                         >
-                            <img className="faction-logo" src="images/Human Resistance Logo.webp" alt="" /> Human <br /> Resistance
+                            <Image className="faction-logo" src="/images/Human Resistance Logo.webp" alt="" width="100" height="100"/> Human <br /> Resistance
                         </motion.button>
                     </div>
 
@@ -85,8 +92,8 @@ const Dashboard: NextPage = () => {
                             </p>
                             <div>
                                 {faction === 'PRISMAI'
-                                    ? <img className="faction-image" src="images/Legendary AI General.webp" alt="" />
-                                    : <img className="faction-image" src="images/The Death Machine.webp" alt="" />}
+                                    ? <Image className="faction-image" src="/images/Legendary AI General.webp" alt="" width="100" height="100"/>
+                                    : <Image className="faction-image" src="/images/The Death Machine.webp" alt="" width="100" height="100"/>}
                             </div>
                         </motion.div>
                     )}

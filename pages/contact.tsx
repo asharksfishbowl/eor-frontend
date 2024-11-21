@@ -15,7 +15,7 @@ const Contact: NextPage = () => {
 
     return (
         <motion.div
-            className="p-6 bg-gradient-to-r from-gray-800 to-black rounded-lg"
+            className="p-6 bg-gradient-to-r from-gray-800 to-black rounded-lg content"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 1 }}
