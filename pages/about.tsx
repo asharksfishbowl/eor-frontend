@@ -1,6 +1,7 @@
 import { NextPage } from 'next';
 import { motion } from 'framer-motion';
 
+
 const About: NextPage = () => {
     return (
         <motion.div
