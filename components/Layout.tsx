@@ -14,9 +14,9 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                 <div className="background-image">
                     <Image
                         src="/images/futuristic_pcb_website_background.png"
-                        alt="Background"
-                        layout="fill"
-                        objectFit="cover"
+                        fill
+                        style={{ objectFit: 'cover' }}
+                        alt="Futuristic PCB Website Background"
                         priority={true}
                     />
                 </div>
@@ -26,8 +26,8 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                             className="background-image-header"
                             src="/images/echos_of_resistance_title.png"
                             alt="Echos of Resistance"
-                            layout="fill"
-                            objectFit="cover"
+                            fill
+                            style={{ objectFit: 'cover' }}
                             priority={true}
                         />
                     </div>
