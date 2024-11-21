@@ -1,4 +1,4 @@
-
-/eor-frontend/node_modules
-/eor-frontend/.next
-eor-frontend/.env
+/node_modules
+/.next
+.env
+.env.*
