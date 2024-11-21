@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { NextPage } from 'next';
 import { motion } from 'framer-motion';
 import Image from 'next/image';
-import { FACTION_DETAILS } from '../helpers/constants';
+import { FACTION_DETAILS } from '@helpers/constants';
 
 const Dashboard: NextPage = () => {
     const [username, setUsername] = useState('User');
