@@ -40,4 +40,4 @@ jobs:
       with:
         app-name: "eor-frontend"  # Replace with your Azure App Service name
         slot-name: "production"
-        package: '.next'  # Ensure this matches your build output directory
+        package: '.'  # Ensure this matches your build output directory
