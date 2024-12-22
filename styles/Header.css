@@ -1,13 +1,13 @@
 .header-background {
     position: relative;
-    width: 70% !important;
-    height: 35vh !important; /* Full viewport height */
+    width: 36% !important;
+    height: 20vh !important; /* Full viewport height */
     overflow: hidden; /* Hide overflow to prevent image going outside of container */
     perspective: 1800px; /* Perspective for a 3D effect */
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-left: 15vw;
+    margin-left: 31vw;
 }
 
 .circuit-border {
@@ -25,8 +25,8 @@
 
 .background-image-header {
     position: relative;
-    width: 130%;
-    height: 170%;
+    width: 90%;
+    height: 130%;
     object-fit: fill; /* Ensures the image covers the entire container */
     transform-origin: center; /* Keep the transform centered */
     z-index: 0;

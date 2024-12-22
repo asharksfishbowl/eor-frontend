@@ -1,17 +1,11 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 .crazy-message {
-    margin-top: 40px;
-    vertical-align: middle;
-    text-align: center;
     font-size: 1.25rem;
     font-weight: bold;
     background: linear-gradient(90deg, #ff6b6b, #ffd93d, #6bc1ff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: glow 1.5s infinite alternate, textShadow 1.5s infinite alternate;
+    text-align: left;
 }
 
 @keyframes glow {
