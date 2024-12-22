@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import Image from 'next/image';
 
 interface DialogProps {
     isOpen: boolean;
@@ -53,10 +54,12 @@ const Dialog: React.FC<DialogProps> = ({ isOpen, onClose, title, message, type =
                             {/* Left Column: Image */}
                             <div className="flex-shrink-0 w-1/3 flex items-center justify-center">
                                 {image && (
-                                    <img
+                                    <Image
                                         src={image}
                                         alt="Dialog Illustration"
-                                        className="w-34 h-34 object-contain"
+                                        width={136} // Adjusted from w-34 = 34 * 4px
+                                        height={136} // Adjusted from h-34 = 34 * 4px
+                                        className="object-contain"
                                     />
                                 )}
                             </div>
