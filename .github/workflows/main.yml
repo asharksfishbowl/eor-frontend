@@ -16,35 +16,38 @@ jobs:
       name: 'production'
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v3
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v3
-      with:
-        node-version: '20'
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
 
-    - name: Install dependencies
-      run: npm install
+      - name: Install dependencies
+        run: npm install
 
-    - name: Build project
-      run: npm run build
+      - name: Build project
+        run: npm run build
 
-    - name: Move static build files
-      run: mv ./build/static ./build/standalone/build
+      - name: Move static build files
+        run: mv ./build/static ./build/standalone/build
 
-    - name: Move standalone build files
-      run: mv ./public ./build/standalone
+      - name: Move standalone build files
+        run: mv ./public ./build/standalone
 
-    - name: Azure Login
-      uses: azure/login@v1
-      with:
-        creds: ${{ secrets.AZURE_CREDENTIALS }}
+      - name: Debugging List build directory
+        run: ls -R ./build/standalone
 
-    - name: Deploy to Azure Web App
-      uses: azure/webapps-deploy@v2
-      with:
-        app-name: "eor-frontend"
-        slot-name: "production"
-        publish-profile: ${{ secrets.AZURE_PUBLISH_PROFILE }}
-        package: "./build/standalone"
+      - name: Azure Login
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      - name: Deploy to Azure Web App
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: "eor-frontend"
+          slot-name: "production"
+          publish-profile: ${{ secrets.AZURE_PUBLISH_PROFILE }}
+          package: "./build/standalone"
