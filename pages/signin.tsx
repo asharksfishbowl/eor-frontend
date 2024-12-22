@@ -29,9 +29,13 @@ const SignIn: NextPage = () => {
             setDialogTitle('Success');
             setDialogMessage('You have signed in successfully!');
             setDialogType('success');
-        } catch (err: any) {
-            setDialogTitle('Error');
-            setDialogMessage(err.message || 'An unexpected error occurred');
+        } catch (err: unknown) {
+            if (err instanceof Error) {
+                setDialogTitle('Error');
+                setDialogMessage(err.message || 'An unexpected error occurred');
+            } else {
+                setDialogMessage('An unexpected error occurred');
+            }
             setDialogType('error');
         } finally {
             setIsDialogOpen(true); // Open the dialog

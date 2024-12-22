@@ -57,12 +57,14 @@ const SignUp: NextPage = () => {
             setPassword('');
             setConfirmPassword('');
             setErrors({});
-        } catch (error: any) {
-            // Error Dialog
-            setDialogTitle('Error');
-            setDialogMessage(error.message || 'An unexpected error occurred');
+        } catch (err: unknown) {
+            if (err instanceof Error) {
+                setDialogTitle('Error');
+                setDialogMessage(err.message || 'An unexpected error occurred');
+            } else {
+                setDialogMessage('An unexpected error occurred');
+            }
             setDialogType('error');
-            setIsDialogOpen(true);
         } finally {
             setIsLoading(false);
         }
