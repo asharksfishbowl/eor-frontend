@@ -1,16 +1,18 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    reactStrictMode: true, // Enables React's strict mode
-    distDir: 'build', // Custom output directory for the build
-    output: 'standalone', // Standalone mode for deployment
+    reactStrictMode: true,
+    distDir: 'build',
+    output: 'standalone',
     env: {
-        NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001', // Use .env variable or fallback
+        NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL || 'https://default-api-url.com',
     },
     async rewrites() {
+        const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'https://default-api-url.com';
+        console.log("Using API URL:", apiUrl); // Debugging log
         return [
             {
                 source: '/api/:path*',
-                destination: `${process.env.NEXT_PUBLIC_API_URL}/api/:path*`, // Proxy API requests to the backend
+                destination: `${apiUrl}/api/:path*`,
             },
         ];
     },
