@@ -1,7 +1,8 @@
 import { NextPage } from 'next';
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import Dialog from '../components/Dialog'; // Import the Dialog component
+import Dialog from '../components/Dialog';
+import PasswordInput from '../components/PasswordInput';
 
 const SignIn: NextPage = () => {
     const [email, setEmail] = useState('');
@@ -14,6 +15,7 @@ const SignIn: NextPage = () => {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         try {
+            debugger;
             const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/auth/login`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -58,12 +60,9 @@ const SignIn: NextPage = () => {
                     onChange={(e) => setEmail(e.target.value)}
                     className="p-3 rounded bg-gray-900 text-white border border-gray-700 w-full"
                 />
-                <input
-                    type="password"
-                    placeholder="Password"
+                <PasswordInput
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
-                    className="p-3 rounded bg-gray-900 text-white border border-gray-700 w-full"
                 />
                 <button
                     type="submit"
@@ -72,8 +71,6 @@ const SignIn: NextPage = () => {
                     Sign In
                 </button>
             </form>
-
-            {/* Dialog Component */}
             <Dialog
                 isOpen={isDialogOpen}
                 onClose={() => setIsDialogOpen(false)}
