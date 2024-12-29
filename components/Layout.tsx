@@ -11,6 +11,10 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
             <Head>
                 <title>Echos of Resistance</title>
                 <meta name="description" content="Manage factions and more in EoR" />
+                {/* Favicon */}
+                <link rel="icon" href="/favicon.ico" />
+                {/* If using a PNG file */}
+                {/* <link rel="icon" type="image/png" href="/favicon.png" /> */}
             </Head>
             <div className="circuit-border min-h-screen bg-gradient-to-br from-gray-900 to-black text-white">
                 <div className="background-image">
