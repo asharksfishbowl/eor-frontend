@@ -39,6 +39,12 @@ jobs:
       - name: Debugging List build directory
         run: ls -R ./build/standalone
 
+      - name: Set Build Environment Variables
+        run: |
+          export NEXT_PUBLIC_API_URL=$APPSETTING_NEXT_PUBLIC_API_URL
+        env:
+          APPSETTING_NEXT_PUBLIC_API_URL: ${{ secrets.APPSETTING_NEXT_PUBLIC_API_URL }}
+
       - name: Azure Login
         uses: azure/login@v1
         with:
