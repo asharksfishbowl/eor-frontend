@@ -4,10 +4,10 @@ const nextConfig = {
     distDir: 'build',
     output: 'standalone',
     env: {
-        NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL || 'https://default-api-url.com',
+        NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL || 'https://eor-backend-hdfeg2dqhaasbqhs.canadacentral-01.azurewebsites.net',
     },
     async rewrites() {
-        const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'https://default-api-url.com';
+        const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'https://eor-backend-hdfeg2dqhaasbqhs.canadacentral-01.azurewebsites.net';
         console.log("Using API URL:", apiUrl); // Debugging log
         return [
             {
