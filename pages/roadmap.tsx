@@ -46,7 +46,7 @@ const Roadmap: NextPage<RoadmapPageProps> = ({ roadmap }) => {
 
                                 {/* Progress + Label */}
                                 <div className="flex items-center space-x-2 w-2/3">
-                                    <div className={`relative flex-1 h-8 bg-gray-400 rounded overflow-hidden`}>
+                                    <div className={`relative flex-1 h-8 bg-gray-800 rounded overflow-hidden`}>
                                         <div
                                             className={`absolute top-0 left-0 h-full bg-gradient-to-r ${gradientClass} transition-all duration-300`}
                                             style={{ width: `${g.complete}%` }}
