@@ -69,7 +69,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                                 <li><Link href="/contact" className="hover:text-resist-cyan">Contact Us</Link></li>
                                 <li>
                                     <Link href="/wallet"
-                                          className="block px-4 py-2 bg-amber-100 text-white rounded-lg hover:bg-resist-cyan transition">
+                                          className="block px-4 py-2 bg-amber-900 text-white rounded-lg hover:bg-resist-cyan transition">
                                         Wallet
                                     </Link>
                                 </li>
