@@ -24,6 +24,9 @@ module.exports = {
         resist: '0 0 20px #00e0e0, 0 0 30px #00ff80',
         neon: '0 0 20px #00e0e0, 0 0 30px #00FFFF',
       },
+      animation: {
+        'spin-slow': 'spin 6s linear infinite',
+      },
     },
   },
   safelist: [
