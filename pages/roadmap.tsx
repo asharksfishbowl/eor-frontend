@@ -6,7 +6,7 @@ import { COLOR_GRADIENTS } from "@helpers/constants";
 interface RoadmapItem {
     quarter: string;
     goal: string;
-    complete: number; // 0..100
+    complete: number;
 }
 
 interface RoadmapPageProps {
@@ -33,7 +33,7 @@ const Roadmap: NextPage<RoadmapPageProps> = ({ roadmap }) => {
             {Object.entries(groupedRoadmap).map(([quarter, items], quarterIndex) => (
                 <div
                     key={quarterIndex}
-                    className="p-6 border rounded-lg bg-gradient-to-r from-gray-800 to-gray-900
+                    className="p-6 border rounded-lg bg-gradient-to-r from-cyan-900 to-gray-900
                      hover:scale-105 transition-transform"
                 >
                     <h3 className="text-2xl font-bold mb-4">{quarter}</h3>

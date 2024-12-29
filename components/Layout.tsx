@@ -40,6 +40,10 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                             <li><Link href="/contact" className="hover:text-resist-cyan">Contact Us</Link></li>
                         </ul>
                         <div className="hidden md:flex space-x-4">
+                            <Link href="/wallet"
+                                  className="px-4 py-2 bg-amber-900 text-white rounded-lg hover:bg-blue-500 transition">
+                                Wallet
+                            </Link>
                             <Link href="/signup" className="px-4 py-2 bg-resist-blue text-white rounded-lg hover:bg-resist-cyan transition">
                                 Sign Up
                             </Link>
@@ -64,12 +68,20 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                                 <li><Link href="/about" className="hover:text-prismai-red">About Us</Link></li>
                                 <li><Link href="/contact" className="hover:text-resist-cyan">Contact Us</Link></li>
                                 <li>
-                                    <Link href="/signup" className="block px-4 py-2 bg-resist-blue text-white rounded-lg hover:bg-resist-cyan transition">
+                                    <Link href="/wallet"
+                                          className="block px-4 py-2 bg-amber-100 text-white rounded-lg hover:bg-resist-cyan transition">
+                                        Wallet
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link href="/signup"
+                                          className="block px-4 py-2 bg-resist-blue text-white rounded-lg hover:bg-resist-cyan transition">
                                         Sign Up
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link href="/signin" className="block px-4 py-2 bg-prismai-purple text-white rounded-lg hover:bg-prismai-lightRed transition">
+                                    <Link href="/signin"
+                                          className="block px-4 py-2 bg-prismai-purple text-white rounded-lg hover:bg-prismai-lightRed transition">
                                         Sign In
                                     </Link>
                                 </li>
