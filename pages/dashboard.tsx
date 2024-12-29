@@ -42,15 +42,32 @@ const Dashboard: NextPage = () => {
                     {tagLine}, {username}!
                 </h1>
                 <p className="text-lg text-gray-300">
-                    This is your personalized dashboard where you can manage your settings, view data, and interact with different features of the app.
+                    This is your personalized dashboard where you can manage your settings, view data, and interact with
+                    different features of the app.
                 </p>
+
+                <div className="lore-section mt-8">
+                    <h2 className="text-3xl font-semibold mb-4 text-prismai-red">Faction Lore & Stories</h2>
+                    <iframe
+                        className="youtube-embed w-full h-64 rounded-lg"
+                        src="https://www.youtube.com/embed/UCJiK79zoGnP3vLU2hsS1VaA"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                    ></iframe>
+                    <button
+                        className="mt-4 px-6 py-3 rounded-lg bg-prismai-purple text-white hover:bg-prismai-lightRed"
+                        onClick={() => window.open('https://www.youtube.com/channel/UCJiK79zoGnP3vLU2hsS1VaA', '_blank')}
+                    >
+                        Watch More Lore
+                    </button>
+                </div>
 
                 <div className="mt-8">
                     <h2 className="text-3xl font-semibold mb-4 text-resist-red">Choose Your Faction</h2>
                     <div className="flex space-x-4 mb-6">
                         <motion.button
-                            whileHover={{ scale: 1.1 }}
-                            whileTap={{ scale: 0.9 }}
+                            whileHover={{scale: 1.1}}
+                            whileTap={{scale: 0.9}}
                             className={`px-6 py-3 rounded-lg transition transform ${faction === 'PRISMAI' ? 'bg-prismai-purple text-white shadow-prismai' : 'bg-gray-700 text-white hover:bg-prismai-lightRed'}`}
                             onClick={() => handleFactionClick('PRISMAI')}
                             style={{
@@ -58,12 +75,13 @@ const Dashboard: NextPage = () => {
                                 contain: "content"
                             }}
                         >
-                            <Image className="faction-logo" src="/images/Ancient AI Logo.webp" alt="" width="100" height="100"/> Ancient <br /> AI
+                            <Image className="faction-logo" src="/images/Ancient AI Logo.webp" alt="" width="100"
+                                   height="100"/> Ancient <br/> AI
                         </motion.button>
 
                         <motion.button
-                            whileHover={{ scale: 1.1 }}
-                            whileTap={{ scale: 0.9 }}
+                            whileHover={{scale: 1.1}}
+                            whileTap={{scale: 0.9}}
                             className={`px-6 py-3 rounded-lg transition transform ${faction === 'RESIST' ? 'bg-resist-blue text-white shadow-resist' : 'bg-gray-700 text-white hover:bg-resist-lightGreen'}`}
                             onClick={() => handleFactionClick('RESIST')}
                             style={{
@@ -71,16 +89,17 @@ const Dashboard: NextPage = () => {
                                 contain: "content"
                             }}
                         >
-                            <Image className="faction-logo" src="/images/Human Resistance Logo.webp" alt="" width="100" height="100"/> Human <br /> Resistance
+                            <Image className="faction-logo" src="/images/Human Resistance Logo.webp" alt="" width="100"
+                                   height="100"/> Human <br/> Resistance
                         </motion.button>
                     </div>
 
                     {faction && (
                         <motion.div
                             className={`faction-container p-6 bg-black/60 text-white rounded-lg ${faction === 'PRISMAI' ? 'shadow-prismai' : 'shadow-resist'} mt-6`}
-                            initial={{ opacity: 0 }}
-                            animate={{ opacity: showFactionDetails ? 1 : 0 }}
-                            transition={{ duration: 1 }}
+                            initial={{opacity: 0}}
+                            animate={{opacity: showFactionDetails ? 1 : 0}}
+                            transition={{duration: 1}}
                         >
                             <h3 className={`text-3xl font-bold mb-2 ${faction === 'PRISMAI' ? 'text-prismai-red' : 'text-resist-cyan'}`}>
                                 Faction Overview: {faction}
@@ -93,24 +112,24 @@ const Dashboard: NextPage = () => {
                             <div>
                                 {
                                     faction === 'PRISMAI'
-                                    ? <Image
-                                        className="faction-image"
-                                        src="/images/Legendary AI General.webp"
-                                        alt=""
-                                        width={500}
-                                        height={500}
-                                        style={{ objectFit: 'cover' }}
-                                        priority={true}
-                                    />
-                                    : <Image
-                                        className="faction-image"
-                                        src="/images/The Death Machine.webp"
-                                        alt=""
-                                        width={500}
-                                        height={500}
-                                        style={{ objectFit: 'cover' }}
-                                        priority={true}
-                                    />
+                                        ? <Image
+                                            className="faction-image"
+                                            src="/images/Legendary AI General.webp"
+                                            alt=""
+                                            width={500}
+                                            height={500}
+                                            style={{objectFit: 'cover'}}
+                                            priority={true}
+                                        />
+                                        : <Image
+                                            className="faction-image"
+                                            src="/images/The Death Machine.webp"
+                                            alt=""
+                                            width={500}
+                                            height={500}
+                                            style={{objectFit: 'cover'}}
+                                            priority={true}
+                                        />
                                 }
                             </div>
                         </motion.div>
