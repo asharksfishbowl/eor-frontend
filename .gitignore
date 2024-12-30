@@ -3,3 +3,5 @@
 .env
 .env.*
 /build
+public/.DS_Store
+.DS_Store
