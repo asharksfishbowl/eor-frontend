@@ -25,7 +25,7 @@ const About: NextPage = () => {
                 </div>
                 <div className="flex flex-col items-center">
                     <Image src="/images/miguel.webp" alt="Person 2" className="w-32 h-32 rounded-full mb-4 content" width="100" height="100"/>
-                    <h3 className="text-xl font-bold">Miguel Del Campo</h3>
+                    <h3 className="text-xl font-bold">Position Available</h3>
                     <p className="text-gray-400">Founder & Project Manager</p>
                 </div>
                 <div className="flex flex-col items-center">
