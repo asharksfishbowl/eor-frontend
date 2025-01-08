@@ -1,6 +1,9 @@
+import dotenv from 'dotenv';
 import { useEffect } from 'react';
 import { NextPage } from 'next';
 import { useRouter } from 'next/router';
+
+dotenv.config();
 
 const IndexPage: NextPage = () => {
     const router = useRouter();

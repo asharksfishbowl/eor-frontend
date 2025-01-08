@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 import Head from 'next/head';
 import Link from 'next/link';
 import Image from 'next/image';
+import { ConnectionProvider, WalletProvider } from "@solana/wallet-adapter-react";
+import { WalletModalProvider } from "@solana/wallet-adapter-react-ui";
+import WalletConnector from "@components/WalletConnector";
+import { wallets, network } from '../configs/walletConfig';
 
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -44,10 +48,15 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                             <li><Link href="/contact" className="hover:text-resist-cyan">Contact Us</Link></li>
                         </ul>
                         <div className="hidden md:flex space-x-4">
-                            <Link href="/wallet"
-                                  className="px-4 py-2 bg-amber-900 text-white rounded-lg hover:bg-blue-500 transition">
-                                Wallet
-                            </Link>
+                            <ConnectionProvider endpoint={`https://api.${network}.solana.com`} >
+                                <WalletProvider wallets={wallets.map(wallet => wallet.adapter)} autoConnect>
+                                    <WalletModalProvider>
+                                        <div style={{ textAlign: 'center', padding: '0px' }}  className="px-4 py-2 bg-amber-900 text-white rounded-lg hover:bg-blue-500 transition">
+                                            <WalletConnector />
+                                        </div>
+                                    </WalletModalProvider>
+                                </WalletProvider>
+                            </ConnectionProvider>
                             <Link href="/signup" className="px-4 py-2 bg-resist-blue text-white rounded-lg hover:bg-resist-cyan transition">
                                 Sign Up
                             </Link>

@@ -44,3 +44,16 @@
     position: relative;
     overflow: hidden;
 }
+
+.wallet-container {
+    padding: 0px;
+    position: relative;
+    overflow: hidden;
+    background-color: black;
+    margin-top: 0px;
+}
+
+.wallet-spacer {
+    width: 20px ;
+    background-color: transparent !important;
+}
