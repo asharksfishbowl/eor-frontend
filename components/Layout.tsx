@@ -49,7 +49,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                     </div>
                     <Menu isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen}/>
                     {isMenuOpen && (
-                        <ResponsiveMenu isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen}/>
+                        <ResponsiveMenu isMenuOpen={isMenuOpen} />
                     )}
                 </header>
                 <main className="container mx-auto py-10 px-4 sm:px-6 lg:px-8">{children}</main>

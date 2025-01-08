@@ -9,7 +9,13 @@ import { wallets, network } from '../configs/walletConfig';
 // Dynamically import WalletConnector if it relies on browser-specific APIs
 const WalletConnector = dynamic(() => import('@components/WalletConnector'), { ssr: false });
 
-const Menu = ({ isMenuOpen, setIsMenuOpen }: { isMenuOpen: boolean; setIsMenuOpen: Function }) => {
+const Menu = ({
+    isMenuOpen,
+    setIsMenuOpen
+}: {
+    isMenuOpen: boolean;
+    setIsMenuOpen: React.Dispatch<React.SetStateAction<boolean>>
+}) => {
     const endpoint = `https://api.${network}.solana.com`;
 
     return (

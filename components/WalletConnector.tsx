@@ -25,9 +25,11 @@ const WalletConnector: React.FC = () => {
 
     useEffect(() => {
         if (walletAddress) {
-            fetchBalance();
+            fetchBalance().then(result => {
+                console.log('Balance fetched successfully:', result);
+            });
         }
-    }, [walletAddress]);
+    });
 
     const handleWalletSelect = async (walletName: WalletName) => {
         setIsLoading(true);

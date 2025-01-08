@@ -7,7 +7,7 @@ import {WalletModalProvider} from "@solana/wallet-adapter-react-ui";
 
 const endpoint = `https://api.${network}.solana.com`;
 
-const ResponsiveMenu = ({ isMenuOpen, setIsMenuOpen }: { isMenuOpen: boolean; setIsMenuOpen: Function }) => (
+const ResponsiveMenu = ({ isMenuOpen }: { isMenuOpen: boolean;}) => (
     <div className={`md:hidden ${isMenuOpen ? 'block' : 'hidden'} bg-gray-800 rounded-lg shadow-md mt-4`}>
         <ul className="flex flex-col space-y-4 p-4">
             <li>
