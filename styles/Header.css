@@ -1,30 +1,52 @@
 .header-background {
     position: relative;
+    align-items: center;
+    justify-content: center;
+    left: 70vw;
+    /*width: 400px;*/
+    height: 10vh;
+    object-fit: cover; /* Maintain proportions */
+    transform-origin: right;
+}
+
+@media (max-width: 768px) {
+    .header-background {
+        width: 75%; /* Wider on mobile */
+        height: 10vh; /* Slightly taller on smaller screens */
+        left: 0vw; /* Default alignment */
+        right: 6vw; /* Default alignment */
+    }
+}
+
+.header-background-left {
+    position: relative;
     width: 36%; /* Default width */
     height: 20vh; /* Full viewport height */
     overflow: hidden; /* Hide overflow to prevent image going outside of container */
     perspective: 1800px; /* Perspective for a 3D effect */
     display: flex;
-    align-items: center;
-    justify-content: center;
+    align-items: start;
+    justify-content: start;
     margin-left: 31vw; /* Default alignment */
 }
 
 @media (max-width: 768px) {
-    .header-background {
+    .header-background-left {
         width: 90%; /* Wider on mobile */
-        height: 25vh; /* Slightly taller on smaller screens */
+        height: 5vh; /* Slightly taller on smaller screens */
         margin-left: 5%; /* Center horizontally */
     }
 }
 
+
 .background-image-header {
     position: relative;
-    width: 90%;
-    height: 130%;
     object-fit: cover; /* Stretch without distortion */
     transform-origin: center;
     z-index: 0;
+    border-radius: 15px;
+    width: 13vw;
+    height: 10vh;
 }
 
 @media (max-width: 768px) {
@@ -32,6 +54,25 @@
         width: 100%; /* Stretch to container */
         height: 100%; /* Fully cover */
         object-fit: cover; /* Maintain proportions */
+        transform-origin: right;
+    }
+}
+
+.background-image-header-symbol {
+    position: relative;
+    object-fit: cover; /* Stretch without distortion */
+    transform-origin: left;
+    z-index: 1;
+    border-radius: 15px;
+}
+
+@media (max-width: 768px) {
+    .background-image-header-symbol {
+        width: 90%; /* Stretch to container */
+        height: 90%; /* Fully cover */
+        object-fit: contain; /* Maintain proportions */
+        bottom: 1vh; /* Align to bottom */
+        right: 1vh; /* Align to right */
     }
 }
 
@@ -79,4 +120,28 @@
         padding: 15px; /* Adjust padding for smaller screens */
         text-align: left; /* Align text to the left for readability */
     }
+}
+
+@keyframes waveEffect {
+    0% {
+        transform: translateX(0) translateY(0) rotate(0deg);
+    }
+    25% {
+        transform: translateX(-2px) translateY(2px) rotate(1deg);
+    }
+    50% {
+        transform: translateX(2px) translateY(-2px) rotate(-1deg);
+    }
+    75% {
+        transform: translateX(-2px) translateY(1px) rotate(1deg);
+    }
+    100% {
+        transform: translateX(0) translateY(0) rotate(0deg);
+    }
+}
+
+.flag-animation {
+    display: inline-block;
+    animation: waveEffect 3s infinite linear;
+    transform-origin: left center; /* Makes the waving effect start from the left edge */
 }

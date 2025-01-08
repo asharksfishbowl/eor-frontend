@@ -9,10 +9,10 @@ interface WalletSelectionDialogProps {
 }
 
 const WalletSelectionDialog: React.FC<WalletSelectionDialogProps> = ({
-     wallets,
-     onWalletSelect,
-     onClose,
- }) => {
+    wallets,
+    onWalletSelect,
+    onClose,
+}) => {
     return (
         <div
             style={{
@@ -35,12 +35,19 @@ const WalletSelectionDialog: React.FC<WalletSelectionDialogProps> = ({
                     display: 'flex',
                     flexDirection: 'column',
                     alignItems: 'center',
-                    gap: '10px',
-                    width: '30%',
+                    gap: '20px',
+                    // width: '50%',
                 }}
             >
-                <h2>Select a Wallet</h2>
-                <div style={{ display: 'flex', gap: '20px', flexDirection: 'column' }}>
+                <h2 style={{ color: 'white' }}>Select a Wallet</h2>
+                <div
+                    style={{
+                        display: 'grid',
+                        gap: '20px',
+                        // width: '50%',
+                        gridTemplateColumns: '1fr 1fr', // Default to single column
+                    }}
+                >
                     {wallets.map(({ adapter }) => (
                         <button
                             key={adapter.name}
@@ -52,14 +59,15 @@ const WalletSelectionDialog: React.FC<WalletSelectionDialogProps> = ({
                                 backgroundColor: 'transparent',
                                 border: 'none',
                                 cursor: 'pointer',
+                                color: 'white',
                             }}
                         >
                             <Image
                                 src={`/images/${adapter.name.toLowerCase()}.png`}
                                 alt={adapter.name}
-                                style={{ width: '90%', height: '90px', marginBottom: '10px' }}
-                                height={90}
-                                width={90}
+                                style={{ borderRadius: '5px' }}
+                                height={100}
+                                width={100}
                             />
                             {adapter.name}
                         </button>
@@ -80,6 +88,13 @@ const WalletSelectionDialog: React.FC<WalletSelectionDialogProps> = ({
                     Cancel
                 </button>
             </div>
+            <style jsx>{`
+                @media (min-width: 768px) {
+                    div[style*='grid-template-columns'] {
+                        grid-template-columns: 1fr 1fr; /* Two columns for desktop */
+                    }
+                }
+            `}</style>
         </div>
     );
 };

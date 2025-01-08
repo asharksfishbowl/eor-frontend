@@ -21,7 +21,6 @@ export const getAllBalances = async (publicKey: string): Promise<{ SOL: number; 
             programId: new PublicKey('TokenkegQfeZyiNwAJbNbGKPFXCWuBvf9Ss623VQ5DA'), // SPL Token Program ID
         });
         console.log('Environment Variables:', process.env);
-        debugger;
         // Initialize balances for AI and Human tokens
         const tokenBalances = {
             AI: 0,

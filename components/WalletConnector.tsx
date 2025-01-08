@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useWallet } from '@solana/wallet-adapter-react';
-import { WalletName } from '@solana/wallet-adapter-base'; // Correct import
+import { WalletName } from '@solana/wallet-adapter-base';
 import WalletSelectionDialog from './WalletSelectionDialog';
 import ChangeWalletButton from './ChangeWalletButton';
 import WalletDetails from './WalletDetails';
@@ -12,6 +12,8 @@ const WalletConnector: React.FC = () => {
     const [walletAddress, setWalletAddress] = useState<string | null>(null);
     const [balance, setBalance] = useState<{ SOL: number; AI: number; HUMAN: number } | null>(null);
     const [dialogOpen, setDialogOpen] = useState<boolean>(false);
+    const [errorMessage, setErrorMessage] = useState<string | null>(null);
+    const [isLoading, setIsLoading] = useState<boolean>(false);
 
     useEffect(() => {
         if (publicKey) {
@@ -21,30 +23,51 @@ const WalletConnector: React.FC = () => {
         }
     }, [publicKey]);
 
+    useEffect(() => {
+        if (walletAddress) {
+            fetchBalance();
+        }
+    }, [walletAddress]);
+
     const handleWalletSelect = async (walletName: WalletName) => {
+        setIsLoading(true);
         try {
+            setErrorMessage(null);
+            console.log('Selecting wallet:', walletName);
+            select(walletName); // Select the wallet
+            console.log('Wallet selected successfully.');
             if (!connected) {
-                await connect()
-            }
-            else {
-                select(walletName)
+                console.log('Connecting to wallet...');
+                await connect(); // Connect to the selected wallet
+                console.log('Wallet connected successfully.');
             }
             setDialogOpen(false);
         } catch (error) {
+            setErrorMessage('Failed to connect wallet. Please ensure a wallet is selected.');
             console.error('Error connecting wallet:', error);
+        } finally {
+            setIsLoading(false);
         }
     };
 
     const fetchBalance = async () => {
-        if (walletAddress) {
-            try {
+        setIsLoading(true);
+        try {
+            if (walletAddress) {
                 const fetchedBalance = await getAllBalances(walletAddress);
                 setBalance(fetchedBalance);
-            } catch (error) {
-                console.error('Failed to fetch balance:', error);
             }
+        } catch (error) {
+            setErrorMessage('Failed to fetch balance. Please try again.');
+            console.error('Failed to fetch balance:', error);
+        } finally {
+            setIsLoading(false);
         }
     };
+
+    if (!wallets || wallets.length === 0) {
+        return <p>No wallets available. Please install a wallet extension.</p>;
+    }
 
     return (
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
@@ -60,8 +83,9 @@ const WalletConnector: React.FC = () => {
                             borderRadius: '5px',
                             cursor: 'pointer',
                         }}
+                        disabled={isLoading}
                     >
-                        Select Wallet
+                        {isLoading ? 'Connecting...' : 'Select Wallet'}
                     </button>
                     {dialogOpen && (
                         <WalletSelectionDialog
@@ -73,6 +97,7 @@ const WalletConnector: React.FC = () => {
                 </div>
             ) : (
                 <>
+                    {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
                     <div style={{ display: 'flex', gap: '10px' }}>
                         <ChangeWalletButton disconnect={disconnect} />
                         <WalletBalances fetchBalance={fetchBalance} balance={balance} />
