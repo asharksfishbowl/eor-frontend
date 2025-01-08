@@ -21,19 +21,6 @@ const WalletBalances: React.FC<WalletBalancesProps> = ({ fetchBalance, balance }
             >
                 Get Balances
             </button>
-            {balance && (
-                <div style={{ marginTop: '20px' }}>
-                    <p>
-                        <strong>SOL Balance:</strong> {balance.SOL.toFixed(2)}
-                    </p>
-                    <p>
-                        <strong>AI Token Balance:</strong> {balance.AI.toFixed(2)}
-                    </p>
-                    <p>
-                        <strong>Human Token Balance:</strong> {balance.HUMAN.toFixed(2)}
-                    </p>
-                </div>
-            )}
         </div>
     );
 };

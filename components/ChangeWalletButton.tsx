@@ -9,9 +9,9 @@ const ChangeWalletButton: React.FC<ChangeWalletButtonProps> = ({ disconnect }) =
         <button
             onClick={disconnect}
             style={{
-                backgroundColor: '#FF5722',
+                backgroundColor: '#ef8574',
                 color: 'white',
-                padding: '10px 20px',
+                padding: '5px',
                 border: 'none',
                 borderRadius: '5px',
                 cursor: 'pointer',

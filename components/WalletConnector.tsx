@@ -24,11 +24,11 @@ const WalletConnector: React.FC = () => {
     }, [publicKey]);
 
     useEffect(() => {
-        if (walletAddress) {
-            fetchBalance().then(result => {
-                console.log('Balance fetched successfully:', result);
-            });
-        }
+        // if (walletAddress) {
+        //     fetchBalance().then(result => {
+        //         console.log('Balance fetched successfully:', result);
+        //     });
+        // }
     });
 
     const handleWalletSelect = async (walletName: WalletName) => {
@@ -80,7 +80,7 @@ const WalletConnector: React.FC = () => {
                         style={{
                             backgroundColor: '#4CAF50',
                             color: 'white',
-                            padding: '10px 20px',
+                            padding: '5px',
                             border: 'none',
                             borderRadius: '5px',
                             cursor: 'pointer',
@@ -99,13 +99,10 @@ const WalletConnector: React.FC = () => {
                 </div>
             ) : (
                 <>
-                    {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
+                    {/*{errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}*/}
                     <div style={{ display: 'flex', gap: '10px' }}>
                         <ChangeWalletButton disconnect={disconnect} />
                         <WalletBalances fetchBalance={fetchBalance} balance={balance} />
-                    </div>
-                    <div>
-                        <WalletDetails walletAddress={walletAddress} />
                     </div>
                 </>
             )}

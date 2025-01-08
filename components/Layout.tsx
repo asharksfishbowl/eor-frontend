@@ -6,7 +6,6 @@ import Menu from "@components/Menu";
 
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-
     return (
         <>
             <Head>
@@ -36,6 +35,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                                 priority={true}
                             />
                         </div>
+
                         <div className="header-background shadow-neon border h-full flex-shrink-0">
                             <Image
                                 className="background-image-header object-contain"
@@ -57,5 +57,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
         </>
     );
 };
+
+
 
 export default Layout;

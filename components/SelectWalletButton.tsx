@@ -11,7 +11,7 @@ const SelectWalletButton: React.FC<SelectWalletButtonProps> = ({ onSelectAndConn
             style={{
                 backgroundColor: '#4CAF50',
                 color: 'white',
-                padding: '10px 20px',
+                padding: '5px',
                 border: 'none',
                 borderRadius: '5px',
                 cursor: 'pointer',
