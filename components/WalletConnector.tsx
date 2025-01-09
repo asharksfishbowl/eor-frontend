@@ -3,7 +3,6 @@ import { useWallet } from '@solana/wallet-adapter-react';
 import { WalletName } from '@solana/wallet-adapter-base';
 import WalletSelectionDialog from './WalletSelectionDialog';
 import ChangeWalletButton from './ChangeWalletButton';
-import WalletDetails from './WalletDetails';
 import WalletBalances from './WalletBalances';
 import { getAllBalances } from "@helpers/solanaUtils";
 
@@ -12,7 +11,6 @@ const WalletConnector: React.FC = () => {
     const [walletAddress, setWalletAddress] = useState<string | null>(null);
     const [balance, setBalance] = useState<{ SOL: number; AI: number; HUMAN: number } | null>(null);
     const [dialogOpen, setDialogOpen] = useState<boolean>(false);
-    const [errorMessage, setErrorMessage] = useState<string | null>(null);
     const [isLoading, setIsLoading] = useState<boolean>(false);
 
     useEffect(() => {
@@ -34,7 +32,6 @@ const WalletConnector: React.FC = () => {
     const handleWalletSelect = async (walletName: WalletName) => {
         setIsLoading(true);
         try {
-            setErrorMessage(null);
             console.log('Selecting wallet:', walletName);
             select(walletName); // Select the wallet
             console.log('Wallet selected successfully.');
@@ -45,7 +42,6 @@ const WalletConnector: React.FC = () => {
             }
             setDialogOpen(false);
         } catch (error) {
-            setErrorMessage('Failed to connect wallet. Please ensure a wallet is selected.');
             console.error('Error connecting wallet:', error);
         } finally {
             setIsLoading(false);
@@ -60,7 +56,6 @@ const WalletConnector: React.FC = () => {
                 setBalance(fetchedBalance);
             }
         } catch (error) {
-            setErrorMessage('Failed to fetch balance. Please try again.');
             console.error('Failed to fetch balance:', error);
         } finally {
             setIsLoading(false);

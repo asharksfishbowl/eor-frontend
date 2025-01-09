@@ -5,7 +5,7 @@ interface WalletBalancesProps {
     balance: { SOL: number; AI: number; HUMAN: number } | null; // Balance data
 }
 
-const WalletBalances: React.FC<WalletBalancesProps> = ({ fetchBalance, balance }) => {
+const WalletBalances: React.FC<WalletBalancesProps> = ({ fetchBalance }) => {
     return (
         <div>
             <button
